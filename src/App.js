@@ -1,23 +1,35 @@
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter, Route, Router, Routes, useNavigate } from "react-router-dom";
+import { Routers } from "./routes";
+import { Navbar } from "./components/navbar";
+import { Home } from "./Home";
+import { User } from "./components/user";
+import { UserDetails } from "./components/userdetails";
+import MyBreadcrumbs from "./components/BreadCrumbs";
+import CreateUser from "./components/createuser";
+import { EditUser } from "./components/edituser";
+
 
 function App() {
+  const navigate = useNavigate();
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Navbar/>
+      <MyBreadcrumbs />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/user" element={<User />} />
+        <Route path="/user/create?/*/:id" element={<CreateUser />} />
+        <Route path="/user/edit/*" element={<EditUser />} />
+        <Route path="/user/details?/*/:id?" element={<UserDetails />} />
+
+
+
+
+
+      </Routes>
+
+
+
     </div>
   );
 }

@@ -25,6 +25,7 @@ export const    UserDetails = () => {
     <>
     <div>{`userdetails page  `}</div>
     <button onClick={handleClick}>userdetails button </button>
+    <div>now i'm making changes in detached head branch </div>
     </>
   )
 }
